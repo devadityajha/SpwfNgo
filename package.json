@@ -13,7 +13,8 @@
     "@fontsource/inter": "^5.2.8",
     "@fontsource/sora": "^5.2.8",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.18.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",

@@ -22,7 +22,6 @@ const HomePage = () => {
       <StoriesSection />
       <CampaignsSection />
       <RewriteChildhoodSection />
-      <Footer />
     </div>
   );
 };
