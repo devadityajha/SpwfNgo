@@ -16,6 +16,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./component/Layout/Navbar";
 import Footer from "./component/Layout/Footer";
+import Programes from "./pages/Programes";
+import ProgramDetail from "./pages/ProgramDetail";
+import JoinUs from "./pages/JoinUs";
 
 // Import your Pages
 import HomePage from "./pages/HomePage";
@@ -34,11 +37,9 @@ function App() {
           {/* Home Page Route */}
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
-
-          {/* About Page Route (Ready for when you build it!) */}
-          {/* <Route path="/about" element={<AboutPage />} /> */}
-
-          {/* Add more routes here as you build your other pages */}
+          <Route path="/programs" element={<Programes />} />
+          <Route path="/programs/:slug" element={<ProgramDetail />} />
+          <Route path="/join-us" element={<JoinUs />} />
         </Routes>
       </main>
 
