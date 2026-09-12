@@ -237,11 +237,13 @@ export default function Navbar() {
                 Join us
               </Link>
 
-              <button
-                className={`h-[50px] rounded-full text-[15px] font-medium tracking-[-0.02em] transition-colors ${fundBtnClass}`}
+              <Link
+                to="/fund-us"
+                onClick={() => setMenuOpen(false)}
+                className={`flex h-[50px] items-center justify-center rounded-full border text-[15px] font-medium tracking-[-0.02em] transition-colors ${joinBtnClass}`}
               >
                 Fund us
-              </button>
+              </Link>
             </div>
           </div>
         </div>
