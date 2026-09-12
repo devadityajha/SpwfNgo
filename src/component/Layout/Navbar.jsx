@@ -15,17 +15,13 @@ export default function Navbar() {
   // UPDATED: Added /about to the condition so it stays transparent on the About page
   // const isHome = location.pathname === "/" || location.pathname === "/about";
 
-  // const isHome =
-  //   location.pathname === "/" ||
-  //   location.pathname === "/about" ||
-  //   location.pathname === "/programs";
-  // location.pathname === "/join-us";
-
   const isHome =
     location.pathname === "/" ||
     location.pathname === "/about" ||
     location.pathname === "/programs" ||
-    location.pathname === "/join-us";
+    location.pathname === "/join-us" ||
+    location.pathname === "/fund-us" ||
+    location.pathname === "/store";
 
   useEffect(() => {
     setMenuOpen(false);
@@ -106,11 +102,12 @@ export default function Navbar() {
               Join us
             </Link>
 
-            <button
-              className={`w-[147px] h-[48px] font-['Inter'] rounded-[8px] border text-[16px] font-normal leading-none tracking-[-0.02em] transition-colors ${fundBtnClass}`}
+            <Link
+              to="/fund-us"
+              className={`flex w-[140px] h-[48px] items-center justify-center font-['Inter'] rounded-[8px] border text-[16px] font-normal leading-none tracking-[-0.02em] transition-colors ${joinBtnClass}`}
             >
               Fund us
-            </button>
+            </Link>
           </div>
         </div>
       </nav>

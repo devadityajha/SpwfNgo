@@ -19,6 +19,8 @@ import Footer from "./component/Layout/Footer";
 import Programes from "./pages/Programes";
 import ProgramDetail from "./pages/ProgramDetail";
 import JoinUs from "./pages/JoinUs";
+import FundUs from "./pages/FundUs";
+import Store from "./pages/Store";
 
 // Import your Pages
 import HomePage from "./pages/HomePage";
@@ -40,6 +42,8 @@ function App() {
           <Route path="/programs" element={<Programes />} />
           <Route path="/programs/:slug" element={<ProgramDetail />} />
           <Route path="/join-us" element={<JoinUs />} />
+          <Route path="/fund-us" element={<FundUs />} />
+          <Route path="/store" element={<Store />} />
         </Routes>
       </main>
 
