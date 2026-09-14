@@ -1,32 +1,38 @@
 import { useEffect, useRef } from "react";
 
+import journey01 from "../../assets/images/journey-01.png";
+import journey02 from "../../assets/images/journey-02.png";
+import journey03 from "../../assets/images/journey-03.png";
+import journey04 from "../../assets/images/journey-04.jpg";
+import journey05 from "../../assets/images/journey-05.png";
+
 const DEFAULT_MILESTONES = [
   {
     year: "2018 – 2020",
     title: "Building Foundations",
     text: "Launched our first educational initiatives, reaching children from underserved communities and creating safe learning spaces.",
-    image: "/src/assets/images/journey-01.png",
+    image: journey01,
     alt: "A girl writing on a blackboard in a classroom",
   },
   {
     year: "2020 – 2022",
     title: "Expanding Reach",
     text: "Expanded programs in education and skill development, supporting more children and strengthening community engagement.",
-    image: "/src/assets/images/journey-02.png",
+    image: journey02,
     alt: "Students raising their hands in a classroom",
   },
   {
     year: "2022 – 2024",
     title: "Growing Together",
     text: "Built strong partnerships, introduced new initiatives, and fostered holistic development through learning, nutrition, and mentorship.",
-    image: "/src/assets/images/journey-03.png",
+    image: journey03,
     alt: "A mentor doing a craft activity with a group of girls",
   },
   {
     year: "2024 – 2026",
     title: "Scaling Impact",
     text: "Enhanced our outreach through larger community programs, volunteer networks, and sustained support for children's long-term growth.",
-    image: "/src/assets/images/journey-04.jpg",
+    image: journey04,
     alt: "A child colouring a drawing with crayons",
   },
 ];
@@ -41,7 +47,7 @@ const DEFAULT_CLOSING = {
   badge: "Present",
   title: "Creating Brighter Futures",
   text: "Today, SPWF continues to empower children with education, care, and opportunities, working towards a more equitable future for all.",
-  image: "/src/assets/images/journey-05.png",
+  image: journey05,
   alt: "A group of smiling children standing together",
 };
 
