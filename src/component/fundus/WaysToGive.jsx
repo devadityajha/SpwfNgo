@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Import your exported assets here
 import donateIcon from "../../assets/images/donate-icon.png";
@@ -14,6 +15,7 @@ const pathCards = [
     buttonText: "Donate",
     bgColor: "#FF5255",
     icon: donateIcon,
+    path: "/donate",
   },
   {
     id: 2,
@@ -22,6 +24,7 @@ const pathCards = [
     buttonText: "Become a Partner",
     bgColor: "#5FBCFF",
     icon: sponsorIcon,
+    path: "/join-us",
   },
 ];
 
@@ -63,12 +66,18 @@ const WaysToGive = () => {
                   {card.title}
                 </h3>
 
-                <button
+                {/* <button
                   type="button"
                   className="h-[52px] w-full rounded-[4px] bg-white font-['Sora'] text-[15px] font-medium text-[#000000] transition-opacity duration-200 hover:opacity-90 lg:h-[56px] lg:text-[16px]"
                 >
                   {card.buttonText}
-                </button>
+                </button> */}
+                <Link
+                  to={card.path}
+                  className="flex h-[52px] w-full items-center justify-center rounded-[4px] bg-white font-['Sora'] text-[15px] font-medium text-[#000000] transition-opacity duration-200 hover:opacity-90 lg:h-[56px] lg:text-[16px]"
+                >
+                  {card.buttonText}
+                </Link>
               </div>
             </div>
           ))}

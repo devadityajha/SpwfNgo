@@ -88,7 +88,7 @@ function ProgramCard({ program }) {
             </Link>
 
             <Link
-              to="/join-us"
+              to="/fund-us"
               className="
                 flex h-[48px] items-center justify-center rounded-[8px]
                 bg-black px-[24px]

@@ -15,6 +15,7 @@ const pathCards = [
     buttonText: "Donate",
     bgColor: "#FF5255", // Exact hex from Figma
     icon: donateIcon,
+    path: "/donate",
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const pathCards = [
     buttonText: "Volunteer",
     bgColor: "#E4FF4C", // Exact hex from Figma
     icon: volunteerIcon,
+    path: "/join-us",
   },
   {
     id: 3,
@@ -33,6 +35,7 @@ const pathCards = [
     buttonText: "Become A Sponsor",
     bgColor: "#5FBCFF", // Exact hex from Figma
     icon: sponsorIcon,
+    path: "/join-us",
   },
 ];
 

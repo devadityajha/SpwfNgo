@@ -5,7 +5,6 @@ const DEFAULT_MILESTONES = [
     year: "2018 – 2020",
     title: "Building Foundations",
     text: "Launched our first educational initiatives, reaching children from underserved communities and creating safe learning spaces.",
-    // image: "/images/journey-01.png",
     image: "/src/assets/images/journey-01.png",
     alt: "A girl writing on a blackboard in a classroom",
   },
@@ -46,10 +45,6 @@ const DEFAULT_CLOSING = {
   alt: "A group of smiling children standing together",
 };
 
-/* ------------------------------------------------------------------ */
-/*  Styles                                                             */
-/* ------------------------------------------------------------------ */
-
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Sora:wght@300;400;500;600&display=swap');
 
@@ -62,6 +57,7 @@ const CSS = `
   --oj-loop-h:calc(var(--oj-loop-w) * 352 / 38);
   --oj-line-x:50%;
   --oj-col-gap:96px;
+  --oj-ease:cubic-bezier(.16,1,.3,1);
   position:relative;
   width:100%;
   background:#fff;
@@ -178,10 +174,14 @@ const CSS = `
   width:14px;height:14px;
   border-radius:50%;
   background:var(--oj-track);
-  transform:translate(-50%,50%);
-  transition:background .35s ease,box-shadow .35s ease;
+  transform:translate(-50%,50%) scale(1);
+  transition:background .4s var(--oj-ease),box-shadow .4s var(--oj-ease),transform .4s var(--oj-ease);
 }
-.oj-endcap.is-on{background:var(--oj-ink);box-shadow:0 0 0 7px rgba(0,0,0,.06);}
+.oj-endcap.is-on{
+  background:var(--oj-ink);
+  box-shadow:0 0 0 7px rgba(0,0,0,.06);
+  transform:translate(-50%,50%) scale(1.15);
+}
 
 /* ---- rows ---- */
 .oj-rows{
@@ -206,16 +206,20 @@ const CSS = `
   width:14px;height:14px;
   border-radius:50%;
   background:var(--oj-track);
-  transform:translate(-50%,-50%);
-  transition:background .35s ease,box-shadow .35s ease;
+  transform:translate(-50%,-50%) scale(1);
+  transition:background .4s var(--oj-ease),box-shadow .4s var(--oj-ease),transform .4s var(--oj-ease);
 }
-.oj-dot.is-on{background:var(--oj-ink);box-shadow:0 0 0 7px rgba(0,0,0,.06);}
+.oj-dot.is-on{
+  background:var(--oj-ink);
+  box-shadow:0 0 0 7px rgba(0,0,0,.06);
+  transform:translate(-50%,-50%) scale(1.15);
+}
 .oj-year{position:absolute;top:0;transform:translateY(-50%);}
 .oj-row[data-side="left"] .oj-year{right:34px;}
 .oj-row[data-side="right"] .oj-year{left:34px;}
 
 .oj-copy{max-width:520px;padding-top:clamp(46px,6vw,72px);}
-.oj-media{margin:0;width:100%;max-width:657px;}
+.oj-media{margin:0;width:100%;max-width:657px;overflow:hidden;}
 .oj-media img,.oj-media .oj-ph{
   display:block;
   width:100%;
@@ -230,19 +234,79 @@ const CSS = `
 .oj-row[data-side="right"] .oj-media{grid-column:1;justify-self:end;}
 
 /* ---- closing ---- */
-.oj-closing{max-width:820px;margin:clamp(38px,5vw,60px) auto 0;text-align:center;}
+.oj-closing{max-width:820px;margin:clamp(38px,5vw,60px) auto 0;text-align:center;position:relative;z-index:2;}
 .oj-closing .oj-h3{margin-top:clamp(20px,3vw,30px);}
 .oj-closing .oj-p{margin:0 auto;}
 .oj-closing .oj-media{margin:clamp(26px,3.5vw,44px) auto 0;max-width:673px;}
+.oj-closing .oj-media[data-reveal]{
+  transform:translate3d(0,64px,0);
+  transition:opacity 1.1s var(--oj-ease), transform 1.6s var(--oj-ease);
+  transition-delay:.1s;
+}
+.oj-closing .oj-media[data-reveal].is-in{transform:none;}
 .oj-closing .oj-media img,.oj-closing .oj-media .oj-ph{aspect-ratio:673 / 449;}
 
 /* ---- reveal ---- */
 .oj [data-reveal]{
   opacity:0;
-  transform:translateY(28px);
-  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
+  transform:translate3d(0,34px,0);
+  transition:
+    opacity .9s var(--oj-ease),
+    transform 1.05s var(--oj-ease),
+    filter .9s var(--oj-ease);
+  will-change:opacity,transform;
 }
 .oj [data-reveal].is-in{opacity:1;transform:none;}
+
+/* copy apni side se slide hota hai */
+.oj-row[data-side="left"] .oj-copy[data-reveal]{transform:translate3d(-42px,26px,0);}
+.oj-row[data-side="right"] .oj-copy[data-reveal]{transform:translate3d(42px,26px,0);}
+.oj-row[data-side="left"] .oj-copy[data-reveal].is-in,
+.oj-row[data-side="right"] .oj-copy[data-reveal].is-in{transform:none;}
+
+/* media thoda zoom-out hoke settle hoti hai, aur copy ke baad aati hai */
+
+// .oj-row[data-side="left"] .oj-media[data-reveal]{
+//   transform:translate3d(-56px,0,0);
+//   transition:opacity 1.1s var(--oj-ease), transform 1.4s var(--oj-ease);
+//   transition-delay:.12s;
+// }
+// .oj-row[data-side="right"] .oj-media[data-reveal]{
+//   transform:translate3d(56px,0,0);
+//   transition:opacity 1.1s var(--oj-ease), transform 1.4s var(--oj-ease);
+//   transition-delay:.12s;
+// }
+
+.oj-row[data-side="left"] .oj-media[data-reveal]{
+  transform:translate3d(-72px,0,0);
+  transition:opacity 1.1s var(--oj-ease), transform 1.8s var(--oj-ease);
+  transition-delay:.12s;
+}
+.oj-row[data-side="right"] .oj-media[data-reveal]{
+  transform:translate3d(72px,0,0);
+  transition:opacity 1.1s var(--oj-ease), transform 1.8s var(--oj-ease);
+  transition-delay:.12s;
+}
+
+
+
+.oj-row[data-side="left"] .oj-media[data-reveal].is-in,
+.oj-row[data-side="right"] .oj-media[data-reveal].is-in{transform:none;}
+
+
+
+
+
+
+
+.oj-media[data-reveal] img,
+.oj-media[data-reveal] .oj-ph{
+  transform:scale(1.08);
+  transition:transform 1.3s var(--oj-ease);
+  will-change:transform;
+}
+.oj-media[data-reveal].is-in img,
+.oj-media[data-reveal].is-in .oj-ph{transform:scale(1);}
 
 /* ---- tablet ---- */
 @media (max-width:1080px){
@@ -259,8 +323,19 @@ const CSS = `
     --oj-col-gap:0px;
     padding-left:clamp(14px,4vw,24px);
     padding-right:clamp(14px,4vw,24px);
+  .oj-row[data-side="left"] .oj-media[data-reveal],
+  .oj-row[data-side="right"] .oj-media[data-reveal]{
+    transform:perspective(1000px) rotateX(-28deg) translate3d(0,30px,0);
+    transform-origin:center bottom;
+    transition:opacity .55s var(--oj-ease), transform .75s var(--oj-ease);
   }
-  .oj-intro,.oj-closing{text-align:left;margin:0;padding-left:58px;max-width:none;}
+  .oj-row[data-side="left"] .oj-media[data-reveal].is-in,
+  .oj-row[data-side="right"] .oj-media[data-reveal].is-in{transform:none;}
+
+  }
+    .oj-intro,.oj-closing{text-align:left;padding-left:58px;max-width:none;}
+  .oj-intro{margin:0;}
+  .oj-closing{margin:clamp(72px,11vw,150px) 0 0;}
   .oj-intro .oj-p,.oj-closing .oj-p{margin:0;}
   .oj-closing .oj-media{margin-left:0;margin-right:0;max-width:none;}
   .oj-row{grid-template-columns:1fr;padding-left:58px;}
@@ -272,17 +347,18 @@ const CSS = `
   .oj-row[data-side="left"] .oj-year,
   .oj-row[data-side="right"] .oj-year{left:36px;right:auto;}
   .oj-endcap,.oj-dot{width:12px;height:12px;}
+
+  /* mobile pe sideways slide chhota, warna horizontal scroll ka risk */
+  .oj-row[data-side="left"] .oj-copy[data-reveal],
+  .oj-row[data-side="right"] .oj-copy[data-reveal]{transform:translate3d(0,28px,0);}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .oj [data-reveal]{opacity:1;transform:none;transition:none;}
+  .oj [data-reveal],
+  .oj-media[data-reveal] img{opacity:1;transform:none;transition:none;}
   .oj-dot,.oj-endcap{transition:none;}
 }
 `;
-
-/* ------------------------------------------------------------------ */
-/*  Component                                                          */
-/* ------------------------------------------------------------------ */
 
 export default function OurJourney({
   eyebrow = "Our ",
@@ -298,9 +374,14 @@ export default function OurJourney({
   const railFillRef = useRef(null);
   const dotsRef = useRef([]);
   const endCapRef = useRef(null);
-  const rafRef = useRef(0);
 
-  /* scroll driven "liquid fill" of the timeline */
+  const rafRef = useRef(0);
+  const targetRef = useRef(0); // scroll se aaya hua asli value
+  const currentRef = useRef(0); // screen par dikhne wala smooth value
+  const metricsRef = useRef({ top: 0, height: 1, loopH: 0 });
+  const inViewRef = useRef(false);
+
+  /* scroll driven "liquid fill" — lerp se smooth */
   useEffect(() => {
     const loopFill = loopFillRef.current;
     let length = 0;
@@ -311,78 +392,141 @@ export default function OurJourney({
       loopFill.style.strokeDashoffset = `${length}`;
     }
 
-    const update = () => {
-      rafRef.current = 0;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    // sirf naap-jokh — paint nahi
+    const measure = () => {
       const line = lineRef.current;
       if (!line) return;
 
       const rect = line.getBoundingClientRect();
-      const anchor = window.innerHeight * 0.62;
-      const filled = Math.min(Math.max(anchor - rect.top, 0), rect.height);
-
       const loopH = loopRef.current
         ? loopRef.current.getBoundingClientRect().height
         : 0;
+
+      metricsRef.current = { top: rect.top, height: rect.height, loopH };
+
+      const anchor = window.innerHeight * 0.62;
+      targetRef.current = Math.min(Math.max(anchor - rect.top, 0), rect.height);
+    };
+
+    // sirf paint — naap-jokh nahi
+    const paint = (filled) => {
+      const { height, loopH } = metricsRef.current;
 
       if (loopFill && length) {
         const p = loopH > 0 ? Math.min(filled / loopH, 1) : 1;
         loopFill.style.strokeDashoffset = `${length * (1 - p)}`;
       }
 
-      const railH = Math.max(rect.height - loopH, 1);
+      const railH = Math.max(height - loopH, 1);
       const railP = Math.min(Math.max(filled - loopH, 0) / railH, 1);
-      if (railFillRef.current)
+      if (railFillRef.current) {
         railFillRef.current.style.transform = `scaleY(${railP})`;
+      }
 
+      const lineTop = metricsRef.current.top;
       dotsRef.current.forEach((dot) => {
         if (!dot) return;
         const d = dot.getBoundingClientRect();
-        const y = d.top + d.height / 2 - rect.top;
+        const y = d.top + d.height / 2 - lineTop;
         dot.classList.toggle("is-on", filled >= y - 2);
       });
 
-      if (endCapRef.current)
+      if (endCapRef.current) {
         endCapRef.current.classList.toggle("is-on", railP >= 0.995);
+      }
+    };
+
+    // har frame par current ko target ki taraf thoda kheencho
+    const tick = () => {
+      const diff = targetRef.current - currentRef.current;
+
+      if (Math.abs(diff) < 0.4) {
+        currentRef.current = targetRef.current;
+      } else {
+        // 0.12 = smoothing. kam karoge to aur slow/creamy, zyada karoge to snappy
+        currentRef.current += diff * 0.12;
+      }
+
+      paint(currentRef.current);
+
+      rafRef.current = inViewRef.current
+        ? window.requestAnimationFrame(tick)
+        : 0;
+    };
+
+    const startLoop = () => {
+      if (!rafRef.current) rafRef.current = window.requestAnimationFrame(tick);
     };
 
     const onScroll = () => {
-      if (!rafRef.current)
-        rafRef.current = window.requestAnimationFrame(update);
+      measure();
+      if (reduceMotion) {
+        currentRef.current = targetRef.current;
+        paint(currentRef.current);
+      } else {
+        startLoop();
+      }
     };
 
-    update();
+    measure();
+    currentRef.current = targetRef.current;
+    paint(currentRef.current);
+
+    // section screen se bahar ho to rAF loop band — battery bachti hai
+    const io =
+      "IntersectionObserver" in window
+        ? new IntersectionObserver(
+            ([entry]) => {
+              inViewRef.current = entry.isIntersecting;
+              if (entry.isIntersecting && !reduceMotion) startLoop();
+            },
+            { rootMargin: "200px 0px" },
+          )
+        : null;
+
+    const sectionEl = lineRef.current?.closest(".oj");
+    if (io && sectionEl) io.observe(sectionEl);
+    else inViewRef.current = true;
+
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
 
-    const imgs = lineRef.current?.parentElement?.querySelectorAll("img") || [];
+    const imgs = sectionEl?.querySelectorAll("img") || [];
     imgs.forEach((img) => img.addEventListener("load", onScroll));
 
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       imgs.forEach((img) => img.removeEventListener("load", onScroll));
+      if (io) io.disconnect();
       if (rafRef.current) window.cancelAnimationFrame(rafRef.current);
+      rafRef.current = 0;
     };
   }, [milestones]);
 
-  /* entrance reveals */
+  /* entrance reveals — thoda stagger ke saath */
   useEffect(() => {
     const nodes = document.querySelectorAll(`#${id} [data-reveal]`);
     if (!("IntersectionObserver" in window)) {
       nodes.forEach((n) => n.classList.add("is-in"));
       return;
     }
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-in");
-            io.unobserve(e.target);
-          }
+          if (!e.isIntersecting) return;
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
         });
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.15 },
+      { rootMargin: "0px 0px -14% 0px", threshold: 0.12 },
     );
+
     nodes.forEach((n) => io.observe(n));
     return () => io.disconnect();
   }, [id, milestones]);

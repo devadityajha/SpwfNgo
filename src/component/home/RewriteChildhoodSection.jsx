@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Import your exported assets here
 import donateIcon from "../../assets/images/donate-icon.png";
@@ -15,6 +16,7 @@ const pathCards = [
     buttonText: "Donate",
     bgColor: "#FF5255", // Exact hex from Figma
     icon: donateIcon,
+    path: "/donate",
   },
   {
     id: 2,
@@ -24,6 +26,7 @@ const pathCards = [
     buttonText: "Volunteer",
     bgColor: "#E4FF4C", // Exact hex from Figma
     icon: volunteerIcon,
+    path: "/join-us",
   },
   {
     id: 3,
@@ -33,6 +36,7 @@ const pathCards = [
     buttonText: "Become A Sponsor",
     bgColor: "#5FBCFF", // Exact hex from Figma
     icon: sponsorIcon,
+    path: "/join-us",
   },
 ];
 
@@ -96,9 +100,13 @@ const RewriteChildhoodSection = () => {
                 </h3>
 
                 {/* Button */}
-                <button className="w-full h-[52px] lg:h-[56px] bg-white text-gray-900 font-semibold text-[15px] rounded-[4px] transition-transform hover:scale-[1.02] mt-auto shadow-sm">
+                {/* Button */}
+                <Link
+                  to={card.path}
+                  className="mt-auto flex h-[52px] w-full items-center justify-center rounded-[4px] bg-white text-[15px] font-semibold text-gray-900 shadow-sm transition-transform hover:scale-[1.02] lg:h-[56px]"
+                >
                   {card.buttonText}
-                </button>
+                </Link>
               </div>
             </div>
           ))}

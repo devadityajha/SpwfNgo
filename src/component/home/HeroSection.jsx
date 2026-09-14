@@ -65,15 +65,27 @@
 ///only hero section with separate navbar
 import React from "react";
 import heroGirl from "../../assets/images/hero-girl.png";
+import { Link } from "react-router-dom";
+
+import heroVideo from "../../assets/videos/heroVideo.mp4";
 
 export default function HeroSection() {
   return (
     <div className="w-full font-sans">
       <div className="relative w-full aspect-[1440/1077] min-h-[560px] max-h-[100svh] overflow-hidden">
         {/* Hero Background Image */}
-        <img
+        {/* <img
           src={heroGirl}
           alt="A child studying with thumbs up"
+          className="absolute inset-0 w-full h-full object-cover object-[50%_20%] md:object-[48%_18%] lg:object-[50%_20%]"
+        /> */}
+        <video
+          src={heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={heroGirl}
           className="absolute inset-0 w-full h-full object-cover object-[50%_20%] md:object-[48%_18%] lg:object-[50%_20%]"
         />
 
@@ -92,9 +104,12 @@ export default function HeroSection() {
             <br />
             Their Hearts Live.
           </h1>
-          <button className="h-[54px] w-[227px] rounded-[8px] bg-white px-[80px] py-[16px] font-['Inter'] text-[18px] font-medium leading-none tracking-[-0.01em] text-black hover:bg-gray-100 transition-colors ">
+          <Link
+            to="/fund-us"
+            className="flex h-[48px] w-[160px] items-center justify-center rounded-[8px] bg-white font-['Inter'] text-[16px] font-medium leading-none tracking-[-0.01em] text-black transition-colors hover:bg-gray-100 md:w-[227px]"
+          >
             Fund us
-          </button>
+          </Link>
         </div>
 
         {/* ─── MOBILE Hero Content ─── */}
@@ -114,9 +129,12 @@ export default function HeroSection() {
           </h1>
 
           {/* CTA */}
-          <button className="h-[48px] w-[160px] rounded-[8px] bg-white font-['Inter'] text-[16px] font-medium leading-none tracking-[-0.01em] text-black transition-colors hover:bg-gray-100 md:w-[227px]">
+          <Link
+            to="/fund-us"
+            className="flex h-[48px] w-[160px] items-center justify-center rounded-[8px] bg-white font-['Inter'] text-[16px] font-medium leading-none tracking-[-0.01em] text-black transition-colors hover:bg-gray-100 md:w-[227px]"
+          >
             Fund us
-          </button>
+          </Link>
         </div>
       </div>
     </div>

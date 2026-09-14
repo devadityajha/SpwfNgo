@@ -1,5 +1,5 @@
 import React from "react";
-import joinUsHero from "../../assets/images/joinus.png";
+import joinUsHero from "../../assets/images/Joinus.png";
 
 export default function HeroSection({
   eyebrow = "Be A Part Of The Change",

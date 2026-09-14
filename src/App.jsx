@@ -21,17 +21,19 @@ import ProgramDetail from "./pages/ProgramDetail";
 import JoinUs from "./pages/JoinUs";
 import FundUs from "./pages/FundUs";
 import Store from "./pages/Store";
-
-// Import your Pages
+import Blog from "./pages/Blog";
 import HomePage from "./pages/HomePage";
-
 import About from "./pages/About";
+import ScrollToTop from "./component/Layout/ScrollToTop";
+import BlogDetailPage from "./blogs/BlogDetailPage";
+import Donate from "./pages/Donate";
 
 function App() {
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
       {/* 1. Global Navbar: Shows on EVERY page, floating on top */}
       <Navbar />
+      <ScrollToTop />
 
       {/* 2. The Page Router: Swaps out the middle content */}
       <main className="flex-grow">
@@ -44,6 +46,9 @@ function App() {
           <Route path="/join-us" element={<JoinUs />} />
           <Route path="/fund-us" element={<FundUs />} />
           <Route path="/store" element={<Store />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogDetailPage />} />
+          <Route path="/donate" element={<Donate />} />
         </Routes>
       </main>
 
