@@ -27,8 +27,20 @@ import About from "./pages/About";
 import ScrollToTop from "./component/Layout/ScrollToTop";
 import BlogDetailPage from "./blogs/BlogDetailPage";
 import Donate from "./pages/Donate";
+import Lenis from "lenis";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+    return () => lenis.destroy();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
       {/* 1. Global Navbar: Shows on EVERY page, floating on top */}
