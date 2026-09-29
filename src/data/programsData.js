@@ -195,7 +195,7 @@ export const programs = [
     number: "03",
     title: "Aahar",
     icon: iconAahar,
-    iconBg: "#A9D3F5",
+    iconBg: "#5FBCFF",
     image: imgAahar,
     bullets: [
       "500+ children empowered",
