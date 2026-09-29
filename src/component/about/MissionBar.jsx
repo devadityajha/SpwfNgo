@@ -165,7 +165,7 @@ export default function AboutOrangeSection() {
         className="
           absolute left-1/2 -translate-x-1/2
           top-[60px] sm:top-[80px] md:top-[100px] lg:top-[120px]
-          w-[90%] max-w-[1045px]
+                   w-[90%] max-w-[1160px]
           text-center text-white
           font-['Sora'] font-normal
           text-[18px] sm:text-[22px] md:text-[26px] lg:text-[32px]
@@ -194,7 +194,7 @@ export default function AboutOrangeSection() {
         alt=""
         aria-hidden="true"
         className="
-          absolute top-[71%] left-1/2 -translate-x-1/2 lg:top-[25%]
+                    absolute top-[355px] left-1/2 -translate-x-1/2 lg:top-[203px]
           w-full h-auto
           pointer-events-none select-none
         "
