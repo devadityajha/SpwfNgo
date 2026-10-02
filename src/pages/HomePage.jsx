@@ -9,6 +9,7 @@ import StoriesSection from "../component/home/StoriesSection";
 import CampaignsSection from "../component/home/CampaignsSection";
 import RewriteChildhoodSection from "../component/home/RewriteChildhoodSection";
 import Footer from "../component/Layout/Footer";
+import Archievers from "../component/home/Achievers";
 
 const HomePage = () => {
   return (
@@ -18,6 +19,7 @@ const HomePage = () => {
       <MissionBanner />
       <PathsSection />
       <ProgramsSection />
+      <Archievers />
       <StatsSection />
       <StoriesSection />
       <CampaignsSection />
