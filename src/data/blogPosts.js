@@ -7,7 +7,87 @@
 import ethan from "../assets/images/ethan.png";
 import cloudImage from "../assets/images/cloudImage.png";
 
+import img1 from "../assets/images/story-top.png";
+import img2 from "../assets/images/story-middle.jpg";
+import img3 from "../assets/images/story-bottom.png";
+
 export const blogPosts = [
+  {
+    slug: "priyanshi-chauhan-story",
+    title: "Priyanshi Found Her Voice In A Borrowed Classroom",
+    excerpt: "From Hesitant Learner To Confident Student.",
+    image: img1,
+    author: "Priyanshi Chauhan",
+    quote:
+      '"Before Joining SPWF, I Never Imagined How Much My Life Could Change. Through Education, Encouragement, And Constant Support, I Found The Confidence To Learn, Grow, And Work Towards A Brighter Future."',
+    intro:
+      "When Priyanshi first walked into one of our community centres, she had already missed close to a year of school. Her family had moved twice in eighteen months, and each move meant a new neighbourhood, a new set of faces, and one more reason to stop asking questions in class. What changed was not a scholarship or a new building — it was a fixed hour, four days a week, with the same two volunteers who knew exactly where she had stopped understanding.",
+    sections: [
+      {
+        heading: "Starting From Where She Was",
+        body: "Our first few weeks with Priyanshi were spent not on the syllabus but on the gaps underneath it. Fractions had never settled, and reading aloud made her freeze. Rather than pushing her forward to keep pace with her grade, the centre coordinator moved her back two levels and rebuilt from there. It is slower work, and it is the only kind that holds.",
+      },
+      {
+        heading: "The Turning Point",
+        body: "By the second term, Priyanshi was answering without being called on. By the third, she was staying back after her own session to help the younger group with their reading. Her teachers at school noticed the change before her family did — attendance first, then participation, then the marks that followed both.",
+      },
+      {
+        heading: "What Comes Next",
+        body: "Priyanshi now wants to finish school and train as a teacher. We are supporting her through her board years with academic help, exam preparation, and the counselling sessions that keep the pressure of those years manageable. Her plan is her own; our job is to make sure nothing outside the classroom takes it away from her.",
+      },
+    ],
+  },
+  {
+    slug: "ankita-yadav-story",
+    title: "Ankita Stopped Sitting At The Back",
+    excerpt: "How Being Asked Changed Everything.",
+    image: img2,
+    imagePosition: "center 12%",
+    author: "Ankita Yadav",
+    quote:
+      '"I Used To Sit Quietly At The Back Of Every Class. The Mentors Here Kept Asking Me Questions Until I Started Answering, And Now I Am The One Helping The Younger Children With Their Lessons."',
+    intro:
+      "Ankita was never a child anyone worried about. She came to school, she sat quietly, she handed in what was asked of her. That is precisely why she went unnoticed for so long — in a classroom of fifty, the child who causes no trouble is the easiest one to lose.",
+    sections: [
+      {
+        heading: "The Quiet Ones Slip Through",
+        body: "Our volunteers are trained to watch for the children who never raise a hand, not just the ones who disrupt. In small groups there is nowhere to hide, and within a month it was clear that Ankita understood far more than she ever volunteered. What she lacked was not ability but the belief that her answer was worth saying out loud.",
+      },
+      {
+        heading: "Asked Until She Answered",
+        body: "The change came from something ordinary: being asked directly, by name, every single session, and being given the time to finish the sentence. It took eight weeks before she answered without hesitating. It took a term before she started asking questions of her own.",
+      },
+      {
+        heading: "Now She Does The Asking",
+        body: "Ankita leads the reading circle for the youngest group at her centre twice a week. She is better at it than most adults, because she still remembers exactly what it feels like to be the one who knows the answer and says nothing.",
+      },
+    ],
+  },
+  {
+    slug: "aaradhya-jha-story",
+    title: "Aaradhya's Family Was Not Sure School Would Lead Anywhere",
+    excerpt: "Two Years Later, She Has A Plan.",
+    image: img3,
+    author: "Aaradhya Jha",
+    quote:
+      '"My Parents Were Not Sure School Would Lead Anywhere For Me. Two Years Later I Have A Report Card I Am Proud Of, And A Plan For What I Want To Become."',
+    intro:
+      "The hardest conversations we have are rarely with children. Aaradhya wanted to study. Her parents, weighing school fees against a daughter who could be earning, were not convinced it would lead anywhere — and they were not being unreasonable. Nobody in the family had finished school, so there was no example of what finishing it actually bought.",
+    sections: [
+      {
+        heading: "Convincing The Household, Not The Child",
+        body: "Our coordinators visited Aaradhya's home four times before she ever attended a session. Those visits were not about persuasion but about information — what the programme costs the family, what it would require of her, and what students before her had gone on to do. Families make better decisions with better information.",
+      },
+      {
+        heading: "Progress They Could See",
+        body: "What settled it was a report card. Her parents could not read every subject name, but they could see the improvement from one term to the next, and they could see their daughter explaining the paper to her younger brother at the kitchen table.",
+      },
+      {
+        heading: "A Plan Of Her Own",
+        body: "Aaradhya has decided she wants to work in healthcare. She has four years of school ahead of her and a household that now expects her to finish them. That shift — from permission to expectation — is the one that matters most, and it is the one that lasts after we are gone.",
+      },
+    ],
+  },
   {
     slug: "every-child-deserves-the-chance-to-learn",
     title: "Every Child Deserves The Chance To Learn",

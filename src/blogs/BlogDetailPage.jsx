@@ -31,10 +31,16 @@ const BlogDetailPage = () => {
       {/* Hero — 1440 x 578 */}
       <section className="relative h-[360px] w-full overflow-hidden bg-[#6C63D8] sm:h-[480px] lg:h-[578px]">
         {post.image ? (
+          // <img
+          //   src={post.image}
+          //   alt=""
+          //   aria-hidden="true"
+          //   className="absolute inset-0 h-full w-full object-cover"
           <img
             src={post.image}
             alt=""
             aria-hidden="true"
+            style={{ objectPosition: post.imagePosition ?? "center" }}
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : null}

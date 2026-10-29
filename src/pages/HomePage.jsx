@@ -10,12 +10,12 @@ import CampaignsSection from "../component/home/CampaignsSection";
 import RewriteChildhoodSection from "../component/home/RewriteChildhoodSection";
 import Footer from "../component/Layout/Footer";
 import Archievers from "../component/home/Achievers";
+import FaqSection from "../component/home/FaqSection";
 
 const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      <PartnersBar />
       <MissionBanner />
       <PathsSection />
       <ProgramsSection />
@@ -23,7 +23,9 @@ const HomePage = () => {
       <StatsSection />
       <StoriesSection />
       <CampaignsSection />
+      <PartnersBar />
       <RewriteChildhoodSection />
+      <FaqSection />
     </div>
   );
 };

@@ -10,6 +10,7 @@ const programs = [
     name: "Shiksharth",
     slug: "shiksharth",
     image: shiksharth,
+    scale: 1,
     bgColor: "#FF5255",
     description:
       "Helping children build strong learning foundations through engaging lessons, personalized attention, and a supportive environment where curiosity thrives.",
@@ -18,6 +19,7 @@ const programs = [
     number: "2.",
     name: "Kaushal Utthan",
     image: kaushal,
+    scale: 1.75,
     slug: "kaushal-utthan",
     bgColor: "#D4F53C",
     description:
@@ -28,6 +30,7 @@ const programs = [
     name: "Aahar",
     slug: "aahar",
     image: aahar,
+    scale: 1.6,
     bgColor: "#5FBCFF",
     description:
       "From creative arts to practical life skills, Kaushal Utthan helps children discover their talents, build confidence, and prepare for a more independent future.",
@@ -150,10 +153,16 @@ function ProgramsSection() {
               style={{ backgroundColor: program.bgColor }}
               className="w-full max-w-[320px] aspect-square lg:w-[320px] lg:h-[320px] rounded-[40px] shrink-0 flex items-center justify-center overflow-hidden mx-auto lg:mx-0"
             >
-              <img
+              {/* <img
                 src={program.image}
                 alt={program.name}
                 className="w-[180px] lg:w-[206.01px] h-auto lg:h-[178.04px] object-contain"
+              /> */}
+              <img
+                src={program.image}
+                alt={program.name}
+                style={{ transform: `scale(${program.scale ?? 1})` }}
+                className="w-[180px] h-[180px] lg:w-[206px] lg:h-[206px] object-contain"
               />
             </div>
 

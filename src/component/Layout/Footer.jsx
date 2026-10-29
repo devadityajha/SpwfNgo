@@ -189,7 +189,7 @@ const Footer = () => {
         TOP SECTION (Pre-Footer with Illustration)
         =========================================
       */}
-      <div className="w-full max-w-[1440px] h-auto lg:h-[496px] bg-[#FEFAF1] relative overflow-hidden flex-shrink-0 flex flex-col lg:block pt-16 lg:pt-0">
+      <div className="w-full  h-auto lg:h-[496px] bg-[#FEFAF1] relative overflow-hidden flex-shrink-0 flex flex-col lg:block pt-16 lg:pt-0">
         {/* 
           Text Area 
           FIX: Removed mobile centering. Enforced text-left for symmetry.
